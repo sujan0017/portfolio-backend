@@ -3,7 +3,6 @@ const roleBaseAuth = (role) => {
     if (!req.user.roles.includes(role)) {
       return res.status(403).send("Forbidden");
     }
-    console.log(req.user.roles, role, req.user);
     next();
   };
 };
