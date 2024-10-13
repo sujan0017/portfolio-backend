@@ -9,7 +9,6 @@ import resume from "./routes/resume.js";
 import cookieParser from "cookie-parser";
 
 
-
 const app = express();
 
 dotenv.config();
