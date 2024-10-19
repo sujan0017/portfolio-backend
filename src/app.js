@@ -8,7 +8,6 @@ import auth from "./routes/auth.js";
 import resume from "./routes/resume.js";
 import cookieParser from "cookie-parser";
 
-
 const app = express();
 
 dotenv.config();
@@ -24,12 +23,18 @@ app.use(bodyParser.json());
 
 app.use(cookieParser());
 
+app.use(
+  cors({
+    origin: process.env.APP_URL,
+  })
+);
+
 const PORT = process.env.PORT;
 
 app.get("/", (req, res) => {
   res.send({
     appName: "portfolio",
-    version: "1.0.0",
+    version: process.env.VERSION,
     port: PORT,
   });
 });
@@ -38,7 +43,7 @@ app.use("/api/testimonial", testimonial);
 
 app.use("/api/auth", auth);
 
-app.use("/api/resume", resume)
+app.use("/api/resume", resume);
 
 app.listen(PORT, (err, res) => {
   console.log(`Server running at port ${PORT}.....`);
