@@ -7,6 +7,7 @@ import testimonial from "./routes/testimonial.js";
 import auth from "./routes/auth.js";
 import resume from "./routes/resume.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 const app = express();
 
